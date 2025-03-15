@@ -2,6 +2,9 @@ import { Suspense } from "react";
 import CategoryList from "../_components/CategoryList";
 import Spinner from "@/ui/Spinner";
 
+export const revalidate = 10;
+export const experimental_ppr = true; // STATIC + DYNAMIC = PPR
+
 export const metadata = {
   title: "بلاگ ها",
 };

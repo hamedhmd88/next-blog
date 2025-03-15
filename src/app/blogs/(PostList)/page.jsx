@@ -2,6 +2,9 @@ import React, { Suspense } from "react";
 import PostList from "../_components/PostList";
 import Spinner from "@/ui/Spinner";
 
+export const revalidate = 10;
+export const experimental_ppr = true; // STATIC + DYNAMIC = PPR
+
 function BlogPage() {
   return (
     <div>

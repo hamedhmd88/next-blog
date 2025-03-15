@@ -3,16 +3,13 @@ import CoverImage from "./CoverImage";
 
 import Author from "./Author";
 import Reading from "./Reading";
-import PostIntraction from "./PostIntraction";
 import { getPosts } from "@/services/postServices";
 import { cookies } from "next/headers";
 import setCookieOnReq from "@/utils/setCookieOnReq";
+import PostInteraction from "./PostInteraction";
 
 async function PostList() {
-  //   await new Promise((res) => setTimeout(() => res(), 3000));
-  // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/post/list`);
-  // const { data } = await res.json();
-  // const { posts } = data;
+
 
   const cookieStore = cookies();
   const options = setCookieOnReq(cookieStore);
@@ -43,7 +40,7 @@ async function PostList() {
 
                   <Reading post={post} />
                 </div>
-                <PostIntraction post={post} />
+                <PostInteraction post={post} />
               </div>
             </div>
           ))}
