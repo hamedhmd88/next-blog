@@ -7,7 +7,9 @@ import PostInteraction from "./PostInteraction";
 async function PostList({ posts }) {
   return (
     <>
-      {posts.length > 0 ? (
+      {posts.length === 0 ? (
+        <div>No posts found.</div>
+      ) : (
         <div className=" grid grid-cols-12 gap-8">
           {posts.map((post) => (
             <div
@@ -36,7 +38,7 @@ async function PostList({ posts }) {
             </div>
           ))}
         </div>
-      ) : null}
+      )}
     </>
   );
 }
