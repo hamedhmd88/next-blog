@@ -4,7 +4,7 @@
 // import { cookies } from "next/headers";
 // import queryString from "query-string";
 
-import PostList from "app/blogs/_components/PostList";
+// import PostList from "app/blogs/_components/PostList";
 
 // async function Category({ params, searchParams }) {
 //   const { categorySlug } = params;
@@ -32,24 +32,28 @@ import PostList from "app/blogs/_components/PostList";
 
 // export default Category;
 
+
+
+import PostList from "app/blogs/_components/PostList";
+
 async function Category({ params }) {
   // params => fetch server =>
   // /post/list?categorySlug=params.categorySlug
   const { categorySlug } = params;
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/post/list?categorySlug=${categorySlug}`
+    `${process.env.NEXT_PUBLIC_API_URL}/post/list?categorySlug=${categorySlug}`
   );
   const { data } = await res.json();
   const { posts } = data || {};
   return (
     <div>
       {posts === 0 ? (
-        <p className=" text-lg text-secondary-600">
+        <p className=" text-lg text-secondary-600 bg-slate-400">
           {" "}
           پستی در این دسته بندی پیدا نشد{" "}
         </p>
       ) : (
-        <PostList />
+        <PostList posts={posts} />
       )}
     </div>
   );

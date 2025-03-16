@@ -1,19 +1,20 @@
-import React, { Suspense } from "react";
 import PostList from "../_components/PostList";
-import Spinner from "@/ui/Spinner";
+import { cookies } from "next/headers";
+import setCookieOnReq from "@/utils/setCookieOnReq";
+import { getPosts } from "@/services/postServices";
 
-export const revalidate = 10;
-export const experimental_ppr = true; // STATIC + DYNAMIC = PPR
+// export const revalidate = 10;
+// export const experimental_ppr = true; // STATIC + DYNAMIC = PPR
 
-function BlogPage() {
+async function BlogPage({ searchParams }) {
+  console.log(searchParams);
+  const cookieStore = cookies();
+  const options = setCookieOnReq(cookieStore);
+  const posts = await getPosts(options);
+  // console.log(posts);
   return (
     <div>
-      <h1 className=" text-lg font-bold mb-4 text-secondary-500">
-        لیست پست ها{" "}
-      </h1>
-      <Suspense fallback={<Spinner />}>
-        <PostList />
-      </Suspense>
+      <PostList posts={posts} />
     </div>
   );
 }

@@ -1,28 +1,19 @@
 import Link from "next/link";
 import CoverImage from "./CoverImage";
-
 import Author from "./Author";
 import Reading from "./Reading";
-import { getPosts } from "@/services/postServices";
-import { cookies } from "next/headers";
-import setCookieOnReq from "@/utils/setCookieOnReq";
 import PostInteraction from "./PostInteraction";
 
-async function PostList() {
-
-
-  const cookieStore = cookies();
-  const options = setCookieOnReq(cookieStore);
-  const posts = await getPosts(options);
-  console.log(posts);
-
-
+async function PostList({ posts }) {
   return (
     <>
       {posts.length > 0 ? (
         <div className=" grid grid-cols-12 gap-8">
           {posts.map((post) => (
-            <div key={post._id} className=" col-span-12 sm:col-span-6 lg:col-span-4 border border-secondary-300 p-2 rounded-lg">
+            <div
+              key={post._id}
+              className=" col-span-12 sm:col-span-6 lg:col-span-4 border border-secondary-300 p-2 rounded-lg"
+            >
               <CoverImage post={post} />
 
               {/* post content */}
