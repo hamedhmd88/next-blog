@@ -32,7 +32,6 @@ async function BlogPage({ searchParams }) {
 
 export default BlogPage;
 
-
 // For ENGLISH Text
 // shoing 3 results for "folan"
 // code => const resultText = posts.length > 1 ? "results" : "result";
