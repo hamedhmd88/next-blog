@@ -1,13 +1,15 @@
 import { getPostBySlug, getPosts } from "@/services/postServices";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import RelatedPost from "../_components/RelatedPost";
+import PostComment from "../_components/comment/PostComment";
 
 export const dynamicParams = false;
 
 // for dynamic route swich to static route and static params
 export async function generateStaticParams() {
   const posts = await getPosts();
-  const slugs = posts.map((post) => ({slug: post.slug}));  // slug باید با نام فولدر یکی باشد
+  const slugs = posts.map((post) => ({ slug: post.slug })); // slug باید با نام فولدر یکی باشد
   return slugs;
 }
 
@@ -18,8 +20,6 @@ export async function generateMetadata({ params }) {
     title: ` پست ${post.title}`,
   };
 }
-
-
 
 async function SinglePage({ params }) {
   // await new Promise((res) => setTimeout(() => res(), 3000));
@@ -50,8 +50,8 @@ async function SinglePage({ params }) {
             src={post.coverImageUrl}
           />
         </div>
-        {/* {post.related.length > 0 ? <RelatedPost posts={post.related} /> : null}
-      <BlogComments post={post} /> */}
+        {post.related.length > 0 && <RelatedPost posts={post.related} />}
+      <PostComment post={post} />
       </div>
     </>
   );

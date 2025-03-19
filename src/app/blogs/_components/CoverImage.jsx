@@ -5,11 +5,11 @@ function CoverImage({ post }) {
   return (
     <>
       <div className=" relative aspect-video overflow-hidden rounded-md mb-6">
-        <Link href={`/blogs/${post.slug}`}>
+        <Link href={`/blogs/${post?.slug}`}>
           <Image
-            src={post.coverImageUrl}
+            src={post?.coverImageUrl}
             fill
-            alt={post.title}
+            alt={post?.title}
             quality={80}
             className=" object-cover hover:scale-110 transition-all duration-300 ease-out"
           />

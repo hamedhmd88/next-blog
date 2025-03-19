@@ -6,16 +6,16 @@ function RelatedPost({ posts }) {
     <div className=" mb-10">
       <p className="text-xl mb-4">پست های مرتبط</p>
       <div className="grid gap-6 grid-cols-6">
-        {posts.map((item) => {
+        {posts.map((post) => {
           return (
             <div
-              key={item._id}
+              key={post._id}
               className="col-span-6 md:col-span-3 lg:col-span-2"
             >
-              <CoverImage {...item} />
+              <CoverImage post={post} />
               <div className="flex items-center justify-between">
-                <p>{item.title}</p>
-                <Author {...item.author} />
+                <p>{post.title}</p>
+                <Author post={post?.author} />
               </div>
             </div>
           );

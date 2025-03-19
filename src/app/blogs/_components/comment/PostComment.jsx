@@ -1,13 +1,13 @@
 "use client";
 import Button from "@/ui/Button";
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
-import classNames from "classnames";
 import Comment from "./Comment";
 import Modal from "@/ui/Modal";
 import { useState } from "react";
 import CommentForm from "./CommentForm";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
+import classNames from "classnames";
 
 function PostComment({ post: { comments, _id: postId } }) {
   const [open, setOpen] = useState(false);
