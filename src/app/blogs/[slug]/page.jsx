@@ -51,7 +51,7 @@ async function SinglePage({ params }) {
           />
         </div>
         {post.related.length > 0 && <RelatedPost posts={post.related} />}
-      <PostComment post={post} />
+        <PostComment post={post} />
       </div>
     </>
   );

@@ -30,7 +30,6 @@
 
 // export default Category;
 
-
 import { getPosts } from "@/services/postServices";
 import setCookieOnReq from "@/utils/setCookieOnReq";
 import PostList from "app/blogs/_components/PostList";
