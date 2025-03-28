@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { bookmarkPostApi } from "@/services/postServices";
 import ButtonIcon from "@/ui/ButtonIcon";
